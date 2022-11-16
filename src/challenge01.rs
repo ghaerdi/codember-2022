@@ -62,7 +62,7 @@ impl Users {
 }
 
 pub async fn result() -> reqwest::Result<()> {
-    let users = Users::new(fetch_users().await.expect("Unable to get users"));
+    let users = Users::new(fetch_users().await?);
     let last_user_username = Users::extract_username(users.last());
 
     println!("challenge 01");
